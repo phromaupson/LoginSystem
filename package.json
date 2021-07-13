@@ -1,16 +1,24 @@
 {
-  "name": "login-system",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "ejs": "*",
-    "morgan": "~1.9.1"
-  }
+    "name": "login-system",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www",
+        "dev": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "ejs": "*",
+        "express": "~4.16.1",
+        "express-message": "^1.2.3",
+        "express-validator": "^6.12.0",
+        "http-errors": "~1.6.3",
+        "mongod": "^2.0.0",
+        "mongoose": "^5.13.2",
+        "morgan": "~1.9.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    }
 }
