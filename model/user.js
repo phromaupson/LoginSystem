@@ -2,9 +2,11 @@
 
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://localhost:27017/LoginDB';
+const bcrypt = require('bcryptjs');
 
 mongoose.connect(mongoDB, {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
     })
     //connect
 var db = mongoose.connection;
@@ -27,5 +29,27 @@ var userSchema = mongoose.Schema({
 var User = module.exports = mongoose.model('User', userSchema);
 
 module.exports.createUser = function(newUser, callback) {
-    newUser.save(callback);
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newUser.password, salt, function(err, hash) {
+            newUser.password = hash;
+            newUser.save(callback);
+        });
+    });
+}
+
+module.exports.getUserById = function(id, callback) {
+    User.findById(id, callback);
+}
+
+module.exports.getUserByName = function(name, callback) {
+    var query = {
+        name: name
+    };
+    User.findOne(query, callback);
+}
+
+module.exports.comparePassword = function(password, hash, callback) {
+    bcrypt.compare(password, hash, function(err, isMatch) {
+        callback(null, isMatch);
+    });
 }

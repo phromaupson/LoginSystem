@@ -7,6 +7,7 @@
         "dev": "nodemon ./bin/www"
     },
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
         "ejs": "*",
@@ -16,7 +17,10 @@
         "http-errors": "~1.6.3",
         "mongod": "^2.0.0",
         "mongoose": "^5.13.2",
-        "morgan": "~1.9.1"
+        "morgan": "~1.9.1",
+        "passport": "^0.4.1",
+        "passport-http": "^0.3.0",
+        "passport-local": "^1.0.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.12"
