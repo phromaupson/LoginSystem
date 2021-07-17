@@ -13,9 +13,20 @@
 </head>
 
 <body>
-    <%- include('layout') %>
-        <h2 align="center">Kamkon</h2>
+    <div class="container">
+        <%- include('layout') %>
 
+            <h2 align="center">Kamkon</h2>
+            <%- messages() %>
+                <% if(user){ %>
+                    <h3>
+                        <%= user.name %>
+                    </h3>
+                    <% } %>
+    </div>
 </body>
+<script type="text/javascript">
+    $('#messages').addClass("alert alert-success");
+</script>
 
 </html>
